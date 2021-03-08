@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharManager", "CharManager\CharManager.csproj", "{F9CCD1EC-EFDF-4705-A2CD-978E825703C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9CCD1EC-EFDF-4705-A2CD-978E825703C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9CCD1EC-EFDF-4705-A2CD-978E825703C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9CCD1EC-EFDF-4705-A2CD-978E825703C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9CCD1EC-EFDF-4705-A2CD-978E825703C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BD7F814-0684-4E28-87BC-C3F432B13193}
+	EndGlobalSection
+EndGlobal
