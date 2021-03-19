@@ -36,7 +36,7 @@ namespace CharManager
         public Regex regFirstMission = new Regex("(LAST_MISSION) ([0-9]{1,2})");
         public Regex regImportance = new Regex("(CHAR) (@) ([0-9]{1,3}) ([0-9]{1,3})");
         public Regex regRandseed = new Regex("(RANDSEED) ([-/0-9]{1,11})");
-        public Regex regGallery = new Regex("(VOICE) ([0-9]{1,3}) (GALLERY) ([A-z]+) ([0-9]{1,3})");
+        public Regex regGallery = new Regex("(VOICE) ([0-9]{1,3}) (GALLERY) ([A-z0-9]+) ([0-9]{1,3})");
         public Regex regPortret = new Regex("(VOICE) ([0-9]{1,3}) (PORTRET)");
 
 
@@ -435,6 +435,8 @@ namespace CharManager
             character.SetVoice(1);
 
             this.characters.Add(character);
+
+            this.charactersCount = this.characters.Count;
 
             return true;
         }
