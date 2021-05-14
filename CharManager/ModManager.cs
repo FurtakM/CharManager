@@ -126,12 +126,12 @@ namespace CharManager
                     Regex reg = new Regex("^(CHARACTERS) ([0-9]+)$");
 
                     if (!reg.IsMatch(line))
-                        return false;
+                        throw new Exception("CHARACTERS line invalid.");
 
                     string count = reg.Match(line).Groups[2].Value;
 
                     if (!Int32.TryParse(count, out this.charactersCount))
-                        return false;
+                        throw new Exception("Characters count value invalid.");
                 }
 
                 /*
@@ -153,12 +153,12 @@ namespace CharManager
                     Character character = new Character();
 
                     if (!regID.IsMatch(line))
-                        return false;
+                        throw new Exception(i + ". ID is not set.");
 
                     string id = regID.Match(line).Groups[1].Value;
 
                     if (id.Length == 0)
-                        return false;
+                        throw new Exception(i + ". ID is empty.");
 
                     character.SetID(id);
 
@@ -172,7 +172,7 @@ namespace CharManager
                         characterCompLength++;
 
                         if (characterCompLength > 150)
-                            return false;
+                            throw new Exception(i + ". Character components overflow.");
 
                         line = lines.Current;
 
@@ -186,13 +186,13 @@ namespace CharManager
                             int sex, profession, nation;
 
                             if (!Int32.TryParse(regHuman.Match(line).Groups[2].Value, out sex))
-                                return false;
+                                throw new Exception(i + ". Invalid sex.");
 
                             if (!Int32.TryParse(regHuman.Match(line).Groups[3].Value, out profession))
-                                return false;
+                                throw new Exception(i + ". Invalid profession.");
 
                             if (!Int32.TryParse(regHuman.Match(line).Groups[4].Value, out nation))
-                                return false;
+                                throw new Exception(i + ". Invalid nation.");
 
                             character.SetSex(sex);
                             character.SetProfession(profession);
@@ -204,10 +204,10 @@ namespace CharManager
                             int speed, armor;
 
                             if (!Int32.TryParse(regAttr.Match(line).Groups[2].Value, out armor))
-                                return false;
+                                throw new Exception(i + ". Invalid strength.");
 
                             if (!Int32.TryParse(regAttr.Match(line).Groups[3].Value, out speed))
-                                return false;
+                                throw new Exception(i + ". Invalid speed.");
 
                             character.SetAttr(armor, speed);
                         }
@@ -218,28 +218,28 @@ namespace CharManager
                             int[] exp = new int[4];
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[2].Value, out skills[0]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[4].Value, out skills[1]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[6].Value, out skills[2]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[8].Value, out skills[3]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[3].Value, out exp[0]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[5].Value, out exp[1]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[7].Value, out exp[2]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             if (!Int32.TryParse(regSkills.Match(line).Groups[9].Value, out exp[3]))
-                                return false;
+                                throw new Exception(i + ". Invalid skill.");
 
                             character.SetSkills(skills, exp);
                         }
@@ -249,7 +249,7 @@ namespace CharManager
                             int firstMission;
 
                             if (!Int32.TryParse(regFirstMission.Match(line).Groups[2].Value, out firstMission))
-                                return false;
+                                throw new Exception(i + ". Invalid first mission.");
 
                             character.SetFirstMission(firstMission);
                         }
@@ -259,7 +259,7 @@ namespace CharManager
                             int importance;
 
                             if (!Int32.TryParse(regImportance.Match(line).Groups[3].Value, out importance))
-                                return false;
+                                throw new Exception(i + ". Invalid importance.");
 
                             character.SetImportance(importance);
                         }
@@ -269,7 +269,7 @@ namespace CharManager
                             int randseed;
 
                             if (!Int32.TryParse(regRandseed.Match(line).Groups[2].Value, out randseed))
-                                return false;
+                                throw new Exception(i + ". Invalid randseed.");
 
                             character.SetRandseed(randseed);
                         }
@@ -280,12 +280,12 @@ namespace CharManager
                             int voice;
 
                             if (!Int32.TryParse(regGallery.Match(line).Groups[2].Value, out voice))
-                                return false;
+                                throw new Exception(i + ". Invalid voice.");
 
                             character.SetVoice(voice);
 
                             if (!Int32.TryParse(regGallery.Match(line).Groups[5].Value, out faceNumber))
-                                return false;
+                                throw new Exception(i + ". Invalid facenumber.");
 
                             character.SetGallery(regGallery.Match(line).Groups[4].Value, faceNumber);
                         }
@@ -294,7 +294,7 @@ namespace CharManager
                             int voice;
 
                             if (!Int32.TryParse(regPortret.Match(line).Groups[2].Value, out voice))
-                                return false;
+                                throw new Exception(i + ". Invalid voice.");
 
                             character.SetVoice(voice);
 
@@ -311,7 +311,7 @@ namespace CharManager
                                 portretCompLength++;
 
                                 if (portretCompLength > 120)
-                                    return false;
+                                    throw new Exception(i + ". Portret components overflow.");
                             }
                         }
                     }

@@ -60,16 +60,20 @@ namespace CharManager
 
         private void LoadCampaign(int index)
         {
-            if (!modManager.LoadCampaign(index))
+            try
+            {
+                if (!modManager.LoadCampaign(index))
+                    return;
+            } 
+            catch (Exception e)
             {
                 MessageBox.Show(
-                    "Start.txt parsing error.",
+                    e.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
 
-                Process.GetCurrentProcess().Kill();
                 return;
             }
 
