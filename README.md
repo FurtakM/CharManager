@@ -25,5 +25,6 @@ Important note: **XichtDLL.dll** is required to run app.
 3. Run CharManager.exe.
 4. Select mod.
 
-![333](https://github.com/FurtakM/CharManager/assets/11198647/7ea3dc36-5fd3-4a03-95a6-45e4a066c0aa)
-![334](https://github.com/FurtakM/CharManager/assets/11198647/e3498455-c757-47b5-b749-9752e46fa583)
+![333](https://github.com/FurtakM/CharManager/assets/11198647/10e1b28a-1675-459d-b9ab-825f3e29cb1c)
+![334](https://github.com/FurtakM/CharManager/assets/11198647/1b80a2ff-36f3-4f3d-b538-5d721c732a85)
+
